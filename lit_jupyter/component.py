@@ -6,6 +6,15 @@ import subprocess
 import shlex
 from time import sleep
 
+JMPC_INSTALL = """
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt-get update
+sudo apt install nodejs
+pip install jupyterlab_templates
+jupyter labextension install jupyterlab_templates
+jupyter serverextension enable --py jupyterlab_templates
+""".split('\n')
+
 R_INSTALL = """
 sudo apt-get update 
 sudo apt-get install r-base
@@ -26,7 +35,7 @@ class CustomBuildConfig(L.BuildConfig):
         self.kernel = kernel
 
     def build_commands(self):
-        build_dict = {"python":[], "r":  R_INSTALL, "julia": JULIA_INSTALL}
+        build_dict = {"python": JMPC_INSTALL, "r":  R_INSTALL, "julia": JULIA_INSTALL}
         build_args = []
 
         for i in self.kernel.split("|"):
