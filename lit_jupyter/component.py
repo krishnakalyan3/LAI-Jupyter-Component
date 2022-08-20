@@ -6,7 +6,7 @@ import subprocess
 import shlex
 from time import sleep
 
-JMPC_INSTALL = """
+TEMPLATE_INSTALL = """
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt-get update
 sudo apt install nodejs
