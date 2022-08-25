@@ -35,7 +35,7 @@ class CustomBuildConfig(L.BuildConfig):
         self.kernel = kernel
 
     def build_commands(self):
-        build_dict = {"python": JMPC_INSTALL, "r":  R_INSTALL, "julia": JULIA_INSTALL}
+        build_dict = {"python": TEMPLATE_INSTALL, "r":  R_INSTALL, "julia": JULIA_INSTALL}
         build_args = []
 
         for i in self.kernel.split("|"):
